@@ -9,6 +9,13 @@ import datetime
 
 pd.set_option('display.width', 200)
 
+def to_datetime(data, column_list):
+    data[column_list] = pd.to_datetime(data[column_list])
+    return data
+
+def delta_days(column_a, column_b):
+    delta = (column_a - column_b).dt.days
+    return delta
 
 def clean_data(data):
     """ clean data
